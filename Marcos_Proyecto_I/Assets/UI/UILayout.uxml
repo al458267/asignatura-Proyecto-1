@@ -1,3 +1,0 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Label text="Coins: 0" name="CoinCounter" style="font-size: 25px; right: auto; left: 75%; -unity-text-outline-color: rgb(255, 160, 0); -unity-text-outline-width: 0; color: rgb(255, 167, 0); -unity-font-style: bold;"/>
-</ui:UXML>
