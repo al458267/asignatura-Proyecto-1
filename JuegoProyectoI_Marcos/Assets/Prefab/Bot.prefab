@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8596640243658272642, guid: 6cac0db7f639e214fb242a33ecab9604, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,3 +187,5 @@ MonoBehaviour:
     m_Bits: 8
   rotationSmoothTime: 0.15
   damageAmount: 10
+  attackCooldown: 1
+  knockbackForce: 15
