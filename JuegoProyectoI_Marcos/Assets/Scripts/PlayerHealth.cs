@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthData stats;
     public event Action<float, float> OnHealthChanged;
     public static PlayerHealth Instance;
+    public UIHealthBarScript uiHealthBarScript;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
         {
             stats.currentHealth -= amount;
             UnityEngine.Debug.Log("Player's health: " + stats.currentHealth);
+            uiHealthBarScript.UpdateHealthBar(stats.currentHealth, stats.maxHealth);
             if (stats.currentHealth < 0)
             {
                 stats.currentHealth = 0;

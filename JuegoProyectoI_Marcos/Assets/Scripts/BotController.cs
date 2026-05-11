@@ -30,24 +30,6 @@ public class BotController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    //Primera Version
-    /*void FixedUpdate()
-    {
-        Vector2 direction =(target.position - target.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 2f);
-        if (hit.collider != null && hit.collider.CompareTag("Obstacle"))
-        {
-            direction += new Vector2(direction.y, -direction.x) * 0.5f;
-        }
-        float distance = Vector2.Distance(transform.position, target.position);
-        if (distance > minDistance)
-        {
-            rb.linearVelocity = direction.normalized * speed;
-            ControlRotation();
-        }
-    }*/
-
-
     private void ControlRotation()
     {
         if(rb.linearVelocity.x > 0.2f && !lookingRight)

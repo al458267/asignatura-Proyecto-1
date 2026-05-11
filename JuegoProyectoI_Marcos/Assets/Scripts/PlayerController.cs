@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        animator.SetBool("walking", true);
         direccionMovimiento = value.Get<Vector2>();
     }
 
@@ -66,12 +67,8 @@ public class PlayerController : MonoBehaviour
         if(rb.linearVelocity.magnitude < velocidad * 1.1f)
         {
             rb.linearVelocity = direccionMovimiento * velocidad;
-            animator.SetBool("walking", true);
         }
-        else
-        {
-            animator.SetBool("walking", false);
-        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -80,7 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             UnityEngine.Object.Destroy(other.gameObject);
             score++;
-            //UnityEngine.Debug.Log("score");
+            UnityEngine.Debug.Log("Score: " + score);
             /*if(score >= TargetScore)
             {
                 //SceneManager.LoadScene("Scene2");

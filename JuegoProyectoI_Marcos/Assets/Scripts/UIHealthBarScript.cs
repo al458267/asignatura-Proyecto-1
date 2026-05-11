@@ -6,17 +6,18 @@ public class UIHealthBarScript : MonoBehaviour
 {
     [SerializeField] private Gradient HealthGradient;
     private ProgressBar healthBar;
+    public PlayerHealth playerHealth;
 
 
     void Awake()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         healthBar = root.Q<ProgressBar>("HealthBar");
+        playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     public void UpdateHealthBar(float currentHealth, float maxHealth)
     {
-        Debug.Log("updated healthbar");
         healthBar.highValue = maxHealth;
         healthBar.value = currentHealth;
         float pct = currentHealth / maxHealth;
@@ -35,21 +36,19 @@ public class UIHealthBarScript : MonoBehaviour
 
     private async Awaitable InitializeUI()
     {
-        Debug.Log("Coroutine");
         await Awaitable.EndOfFrameAsync();
-        if (PlayerHealth.Instance != null)
+        if (playerHealth!= null)
         {
-            Debug.Log("PlayerHealth");
-            PlayerHealth.Instance.OnHealthChanged += UpdateHealthBar;
-            UpdateHealthBar(PlayerHealth.Instance.stats.currentHealth, PlayerHealth.Instance.stats.maxHealth); ;
+            playerHealth.OnHealthChanged += UpdateHealthBar;
+            UpdateHealthBar(playerHealth.stats.currentHealth, playerHealth.stats.maxHealth); ;
         }
     }
 
     public void OnDisable()
     {
-        if (PlayerHealth.Instance != null)
+        if (playerHealth != null)
         {
-            PlayerHealth.Instance.OnHealthChanged -= UpdateHealthBar;
+            playerHealth.OnHealthChanged -= UpdateHealthBar;
         }
     }
 }

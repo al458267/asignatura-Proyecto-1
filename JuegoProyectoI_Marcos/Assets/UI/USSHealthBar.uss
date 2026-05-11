@@ -17,8 +17,6 @@
     border-bottom-left-radius: 5px;
 }
 
-
-
 .my-progress-bar .unity-progress-bar__progress {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -29,5 +27,5 @@
 .my-progress-bar .unity-progress-bar__title {
     -unity-font-style: bold;
     font-size: 8px;
-    -unity-text-align: middle-center;
+    -unity-text-align: lower-center;
 }
